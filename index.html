@@ -296,6 +296,11 @@
   .nimbus-theme .visit-link{color:var(--nimbus);}
   .marea-theme .visit-link{color:var(--marea);}
   .luxe-theme .visit-link{color:var(--luxe);}
+  .visit-link.is-disabled{
+    color:var(--muted-2);
+    border-bottom-style:dashed;
+    cursor:default;
+  }
 
   .proj-video{
     display:block;width:100%;background:#000;
@@ -307,10 +312,10 @@
   }
   .mock + .mock{margin-top:14px;}
 
-  /* alternating section background rhythm */
+  /* alternating section background rhythm (Marea leads, then Luxe, then Nimbus) */
+  .project.marea-theme{background:var(--bg);}
+  .project.luxe-theme{background:var(--surface);}
   .project.nimbus-theme{background:var(--bg);}
-  .project.marea-theme{background:var(--surface);}
-  .project.luxe-theme{background:var(--bg);}
 
   /* per-project accents */
   .nimbus-theme .p-eyebrow{background:var(--nimbus-soft);color:var(--nimbus);}
@@ -534,43 +539,8 @@
     </div>
   </div>
 
-  <!-- NIMBUS -->
-  <section class="project nimbus-theme reveal">
-    <div class="wrap">
-    <div class="project-grid">
-      <div class="p-text">
-        <div class="p-eyebrow"><span class="dot"></span> Dashboard SaaS</div>
-        <h3>Nimbus</h3>
-        <div class="p-tagline">Panel de control para gestionar un negocio digital</div>
-        <p class="p-desc">Un panel donde un equipo puede ver y gestionar usuarios, proyectos y métricas del negocio, todo en un solo lugar, con datos que se actualizan en tiempo real.</p>
-        <div class="p-usecases">
-          <div class="h">¿A quién le sirve algo así?</div>
-          <ul>
-            <li>Una startup que necesita un panel interno para monitorear usuarios y proyectos activos</li>
-            <li>El sistema de administración detrás de un producto propio de software</li>
-            <li>Una agencia que da seguimiento a varios clientes y proyectos a la vez</li>
-          </ul>
-        </div>
-        <div class="stack">
-          <span class="chip">Next.js</span>
-          <span class="chip">React</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">Tailwind CSS</span>
-        </div>
-        <a href="https://dashboard-six-roan-11.vercel.app/" target="_blank" rel="noopener" class="visit-link">Ver sitio en vivo</a>
-      </div>
-      <div class="p-visual">
-        <div class="mock">
-          <div class="chrome"><span></span><span></span><span></span><span class="url">dashboard-six-roan-11.vercel.app</span></div>
-          <video class="proj-video" src="videos/nimbus.mp4" controls muted playsinline preload="metadata"></video>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
   <!-- HOTEL MAREA -->
-  <section class="project marea-theme flip reveal">
+  <section class="project marea-theme reveal">
     <div class="wrap">
     <div class="project-grid">
       <div class="p-text">
@@ -606,7 +576,7 @@
   </section>
 
   <!-- MAISON LUXE -->
-  <section class="project luxe-theme reveal">
+  <section class="project luxe-theme flip reveal">
     <div class="wrap">
     <div class="project-grid">
       <div class="p-text">
@@ -639,6 +609,41 @@
         <div class="mock">
           <div class="video-label">PANEL DE ADMINISTRACIÓN</div>
           <video class="proj-video" src="videos/maison-luxe-admin.mp4" controls muted playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- NIMBUS -->
+  <section class="project nimbus-theme reveal">
+    <div class="wrap">
+    <div class="project-grid">
+      <div class="p-text">
+        <div class="p-eyebrow"><span class="dot"></span> Dashboard SaaS</div>
+        <h3>Nimbus</h3>
+        <div class="p-tagline">Panel de control para gestionar un negocio digital</div>
+        <p class="p-desc">Un panel donde un equipo puede ver y gestionar usuarios, proyectos y métricas del negocio, todo en un solo lugar, con datos que se actualizan en tiempo real.</p>
+        <div class="p-usecases">
+          <div class="h">¿A quién le sirve algo así?</div>
+          <ul>
+            <li>Una startup que necesita un panel interno para monitorear usuarios y proyectos activos</li>
+            <li>El sistema de administración detrás de un producto propio de software</li>
+            <li>Una agencia que da seguimiento a varios clientes y proyectos a la vez</li>
+          </ul>
+        </div>
+        <div class="stack">
+          <span class="chip">Next.js</span>
+          <span class="chip">React</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Tailwind CSS</span>
+        </div>
+        <span class="visit-link is-disabled" aria-disabled="true">Demo temporalmente no disponible</span>
+      </div>
+      <div class="p-visual">
+        <div class="mock">
+          <div class="chrome"><span></span><span></span><span></span><span class="url">dashboard-six-roan-11.vercel.app</span></div>
+          <video class="proj-video" src="videos/nimbus.mp4" controls muted playsinline preload="metadata"></video>
         </div>
       </div>
     </div>
