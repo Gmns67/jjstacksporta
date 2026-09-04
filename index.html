@@ -28,8 +28,8 @@
     --luxe:#c9a877;
     --luxe-soft:rgba(201,168,119,.12);
 
-    --accent2:#8b6cf7;
-    --accent2-soft:rgba(139,108,247,.14);
+    --accent2:#7c5cff;
+    --accent2-soft:rgba(124,92,255,.16);
     --gradient-brand:linear-gradient(135deg,var(--nimbus),var(--accent2));
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -139,16 +139,16 @@
   }
   header.hero::before,header.hero::after{
     content:"";position:absolute;border-radius:50%;
-    filter:blur(90px);opacity:.28;pointer-events:none;z-index:0;
+    filter:blur(70px);opacity:.4;pointer-events:none;z-index:0;
   }
-  header.hero::before{width:380px;height:380px;background:var(--nimbus);top:-140px;left:-100px;}
-  header.hero::after{width:320px;height:320px;background:var(--accent2);bottom:-160px;right:-80px;}
+  header.hero::before{width:400px;height:400px;background:var(--nimbus);top:-140px;left:-100px;}
+  header.hero::after{width:340px;height:340px;background:var(--accent2);bottom:-160px;right:-80px;}
   @media (prefers-reduced-motion: no-preference){
     header.hero::before{animation:floatA 13s ease-in-out infinite;}
     header.hero::after{animation:floatB 15s ease-in-out infinite;}
   }
-  @keyframes floatA{0%,100%{transform:translate(0,0);}50%{transform:translate(35px,25px);}}
-  @keyframes floatB{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,-20px);}}
+  @keyframes floatA{0%,100%{transform:translate(0,0);}50%{transform:translate(45px,35px);}}
+  @keyframes floatB{0%,100%{transform:translate(0,0);}50%{transform:translate(-40px,-28px);}}
   .hero-grid{
     position:relative;z-index:1;
     display:grid;
@@ -182,8 +182,8 @@
     border:1px solid transparent;
     transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease,border-color .2s ease;
   }
-  .btn-primary{background:var(--gradient-brand);color:#061422;box-shadow:0 10px 24px -10px rgba(77,166,255,.55);}
-  .btn-primary:hover{opacity:.92;transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(77,166,255,.65);}
+  .btn-primary{background:var(--gradient-brand);color:#061422;box-shadow:0 12px 28px -8px rgba(124,92,255,.55);}
+  .btn-primary:hover{opacity:.95;transform:translateY(-2px);box-shadow:0 16px 34px -6px rgba(124,92,255,.7);}
   .btn-ghost{border-color:var(--border);color:var(--text);}
   .btn-ghost:hover{border-color:var(--accent2);transform:translateY(-2px);}
 
@@ -210,6 +210,7 @@
   /* SECTION HEADS */
   .section-head{
     padding:64px 0 8px;
+    background:var(--bg);
   }
   .section-head h2{
     font-size:clamp(24px,3vw,32px);
@@ -306,6 +307,11 @@
   }
   .mock + .mock{margin-top:14px;}
 
+  /* alternating section background rhythm */
+  .project.nimbus-theme{background:var(--bg);}
+  .project.marea-theme{background:var(--surface);}
+  .project.luxe-theme{background:var(--bg);}
+
   /* per-project accents */
   .nimbus-theme .p-eyebrow{background:var(--nimbus-soft);color:var(--nimbus);}
   .nimbus-theme .p-eyebrow .dot{background:var(--nimbus);}
@@ -329,10 +335,13 @@
     transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
   }
   .mock:hover{
-    transform:translateY(-5px);
+    transform:translateY(-5px) scale(1.012);
     border-color:var(--muted-2);
     box-shadow:0 34px 74px -30px rgba(0,0,0,.75);
   }
+  .nimbus-theme .mock:hover{box-shadow:0 34px 74px -30px rgba(0,0,0,.75),0 0 36px -6px var(--nimbus-soft);}
+  .marea-theme .mock:hover{box-shadow:0 34px 74px -30px rgba(0,0,0,.75),0 0 36px -6px var(--marea-soft);}
+  .luxe-theme .mock:hover{box-shadow:0 34px 74px -30px rgba(0,0,0,.75),0 0 36px -6px var(--luxe-soft);}
   .mock .chrome{
     display:flex;align-items:center;gap:6px;
     padding:10px 13px;
@@ -347,13 +356,44 @@
   }
   .mock .canvas{padding:18px;}
 
+  /* TRUST */
+  .trust{
+    padding:56px 0;
+    border-top:1px solid var(--border);
+    background:var(--surface);
+  }
+  .trust-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .trust-stat{
+    text-align:center;
+    padding:6px 14px;
+    border-right:1px solid var(--border);
+  }
+  .trust-stat:last-child{border-right:none;}
+  .trust-num{
+    font-size:clamp(19px,2.2vw,24px);
+    font-weight:800;letter-spacing:-0.01em;
+    margin-bottom:6px;color:var(--text);
+  }
+  .trust-num.mono{font-size:15px;}
+  .trust-label{font-size:12.5px;color:var(--muted);}
+  .trust-social{
+    display:block;text-align:center;margin-top:28px;
+    font-size:13.5px;font-weight:600;color:var(--nimbus);
+  }
+  .trust-social:hover{opacity:.85;}
+
   /* STUDIO */
   .studio{
     padding:70px 0;
     border-top:1px solid var(--border);
+    background:var(--bg);
   }
   .studio-grid{
-    display:grid;grid-template-columns:0.9fr 1.1fr;gap:50px;align-items:start;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:start;
   }
   .studio h2{font-size:26px;font-weight:800;margin-bottom:16px;letter-spacing:-0.01em;}
   .studio p{color:var(--muted);font-size:15px;margin-bottom:14px;max-width:50ch;}
@@ -373,13 +413,23 @@
     font-size:13.5px;color:var(--nimbus);font-family:ui-monospace,monospace;
   }
   .credential hr{border:none;border-top:1px solid var(--border);margin:16px 0;}
-  .credential .approach{font-size:13.5px;color:var(--muted);line-height:1.6;}
+  .approach-list{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .approach-list li{
+    font-size:13.5px;color:var(--muted);line-height:1.5;
+    padding-left:17px;position:relative;
+  }
+  .approach-list li::before{
+    content:"";position:absolute;left:0;top:6px;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--accent2);
+  }
 
   /* CONTACT */
   .contact{
     padding:80px 0 90px;
     border-top:1px solid var(--border);
     text-align:left;
+    background:var(--surface);
   }
   .contact h2{
     font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-0.01em;
@@ -413,6 +463,10 @@
     .navlinks a{padding:16px 28px;border-top:1px solid var(--border);}
     .navlinks a.active::after{display:none;}
     .navlinks.open{max-height:220px;}
+
+    .trust-stats{grid-template-columns:repeat(2,1fr);row-gap:22px;}
+    .trust-stat{border-right:none;border-bottom:1px solid var(--border);padding-bottom:18px;}
+    .trust-stat:nth-last-child(-n+2){border-bottom:none;padding-bottom:6px;}
   }
 
   @media (max-width:480px){
@@ -421,6 +475,10 @@
     .cta-row .btn{flex:1 1 auto;justify-content:center;}
     footer .wrap{flex-direction:column;gap:8px;text-align:center;}
     .to-top{right:14px;bottom:14px;width:42px;height:42px;}
+
+    .trust-stats{grid-template-columns:1fr;row-gap:18px;}
+    .trust-stat{border-bottom:1px solid var(--border);padding-bottom:16px;}
+    .trust-stat:last-child{border-bottom:none;padding-bottom:0;}
   }
 </style>
 </head>
@@ -467,15 +525,18 @@
   </div>
 </header>
 
-<main class="wrap" id="main">
+<main id="main">
 
   <div class="section-head reveal" id="proyectos">
-    <h2>Proyectos</h2>
-    <p>Tres ejemplos de lo que podemos construir, pensados para darte una idea de a qué tipo de negocio le sirve cada uno.</p>
+    <div class="wrap">
+      <h2>Proyectos</h2>
+      <p>Tres ejemplos de lo que podemos construir, pensados para darte una idea de a qué tipo de negocio le sirve cada uno.</p>
+    </div>
   </div>
 
   <!-- NIMBUS -->
   <section class="project nimbus-theme reveal">
+    <div class="wrap">
     <div class="project-grid">
       <div class="p-text">
         <div class="p-eyebrow"><span class="dot"></span> Dashboard SaaS</div>
@@ -505,10 +566,12 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- HOTEL MAREA -->
   <section class="project marea-theme flip reveal">
+    <div class="wrap">
     <div class="project-grid">
       <div class="p-text">
         <div class="p-eyebrow"><span class="dot"></span> Sitio y sistema de reservas</div>
@@ -539,10 +602,12 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- MAISON LUXE -->
   <section class="project luxe-theme reveal">
+    <div class="wrap">
     <div class="project-grid">
       <div class="p-text">
         <div class="p-eyebrow"><span class="dot"></span> Tienda en línea + administración</div>
@@ -577,10 +642,63 @@
         </div>
       </div>
     </div>
+    </div>
+  </section>
+
+  <!-- CONFIANZA -->
+  <section class="trust reveal">
+    <div class="wrap">
+      <div class="trust-stats">
+        <div class="trust-stat">
+          <div class="trust-num">3</div>
+          <div class="trust-label">Proyectos entregados</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-num mono">Next.js · React · TS</div>
+          <div class="trust-label">Stack principal</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-num">100%</div>
+          <div class="trust-label">Código propio, sin plantillas</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-num">Disponible</div>
+          <div class="trust-label">Para nuevos proyectos</div>
+        </div>
+      </div>
+
+      <!-- TODO: agregar link real a GitHub/LinkedIn -->
+      <!--
+      <a href="#" class="trust-social" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+      -->
+
+      <!--
+        TESTIMONIOS: descomentar y reemplazar con citas reales de clientes cuando estén
+        disponibles. No publicar nombres, roles ni citas inventadas.
+
+        <div class="testimonials">
+          <div class="testimonial">
+            <p class="quote">[Testimonio pendiente]</p>
+            <div class="who">
+              <span class="who-name">[Nombre pendiente]</span>
+              <span class="who-role">[Rol / negocio pendiente]</span>
+            </div>
+          </div>
+          <div class="testimonial">
+            <p class="quote">[Testimonio pendiente]</p>
+            <div class="who">
+              <span class="who-name">[Nombre pendiente]</span>
+              <span class="who-role">[Rol / negocio pendiente]</span>
+            </div>
+          </div>
+        </div>
+      -->
+    </div>
   </section>
 
   <!-- STUDIO -->
   <section class="studio reveal" id="estudio">
+    <div class="wrap">
     <div class="studio-grid">
       <div>
         <h2>El estudio</h2>
@@ -592,8 +710,13 @@
         <div class="name">Jesús</div>
         <div class="deg mono">Ing. en Gestión y Desarrollo de Software</div>
         <hr>
-        <div class="approach">Diseño de interfaces, arquitectura de producto y buenas prácticas técnicas aplicadas a cada proyecto, desde el primer boceto hasta la entrega funcional.</div>
+        <ul class="approach-list">
+          <li>Diseño de interfaces centrado en el usuario final</li>
+          <li>Arquitectura de producto pensada para crecer</li>
+          <li>Buenas prácticas técnicas de principio a fin, desde el boceto hasta la entrega funcional</li>
+        </ul>
       </div>
+    </div>
     </div>
   </section>
 
